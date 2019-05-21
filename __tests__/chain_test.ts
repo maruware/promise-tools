@@ -4,10 +4,13 @@ import { chain } from '../src/chain'
 
 describe('chain test', () => {
   it('chain should work', async () => {
+    const sample = (msg: string) => {
+      return new Promise<string>(resolve => setTimeout(() => resolve(msg), 10))
+    }
     const q = chain('')
-    q.add(async p => p + 'a')
-    q.add(async p => p + 'b')
-    const last = await q.add(async p => p + 'c')
+    q.add(p => sample(p + 'a'))
+    q.add(p => sample(p + 'b'))
+    const last = await q.add(p => sample(p + 'c'))
 
     expect(last).toBe('abc')
   })
