@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "tsc",
+    "postinstall": "postinstall-build dist"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,8 @@
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "postinstall-build": "^5.0.3"
   }
 }
