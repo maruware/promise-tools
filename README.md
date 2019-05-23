@@ -63,3 +63,19 @@ async function something() {
   // do something
 }
 ```
+
+### defer
+
+Create deferred object.
+
+```ts
+import { deferred } from '@maruware/promise-tools'
+
+async function something() {
+  const d = defer<string>()
+
+  timeout(50).then(() => d.resolve('success'))
+  const result = await d.promise
+  // 'success'
+}
+```
