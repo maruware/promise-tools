@@ -17,11 +17,14 @@ Promise.all shorthand
 ```ts
 import { all } from '@maruware/promise-tools'
 
-await all(
-  Promise.resolve('a'),
-  Promise.resolve('b'),
-  Promise.resolve('c')
-)
+async function something() {
+  await all(
+    Promise.resolve('a'),
+    Promise.resolve('b'),
+    Promise.resolve('c')
+  )
+}
+
 ```
 
 ### chain
@@ -39,9 +42,24 @@ const errorLogger = (err: Error) => {
   console.error(err)
 }
 
-const q = chain('', errorLogger)
-q.add(prev => sample(prev + 'a'))
-q.add(prev => sample(prev + 'b'))
-const last = await q.add(prev => sample(prev + 'c'))
-// 'abc'
+async function something() {
+  const q = chain('', errorLogger)
+  q.add(prev => sample(prev + 'a'))
+  q.add(prev => sample(prev + 'b'))
+  const last = await q.add(prev => sample(prev + 'c'))
+  // 'abc'
+}
+```
+
+### timeout
+
+wait milliseconds
+
+```ts
+import { timeout } from '@maruware/promise-tools'
+
+async function something() {
+  await timeout(1000)
+  // do something
+}
 ```
