@@ -51,16 +51,28 @@ async function something() {
 }
 ```
 
+### delay
+
+resolve after milliseconds
+
+```ts
+import { delay } from '@maruware/promise-tools'
+
+async function something() {
+  await delay(1000)
+  // do something
+}
+```
+
 ### timeout
 
-wait milliseconds
+reject after milliseconds
 
 ```ts
 import { timeout } from '@maruware/promise-tools'
 
 async function something() {
   await timeout(1000)
-  // do something
 }
 ```
 

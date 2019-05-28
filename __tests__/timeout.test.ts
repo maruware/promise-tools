@@ -1,12 +1,14 @@
 /* eslint-env jest */
 
-import { timeout } from '../src/timeout'
+import { timeout, TimeoutError } from '../src/timeout'
 
 describe('timeout test', () => {
   it('timeout should work', async () => {
-    const t1 = Date.now()
-    await timeout(100)
-    const t2 = Date.now()
-    expect(t2 - t1).toBeGreaterThanOrEqual(100)
+    expect.assertions(1)
+    try {
+      await timeout(100)
+    } catch (e) {
+      expect(e).toBeInstanceOf(TimeoutError)
+    }
   })
 })
