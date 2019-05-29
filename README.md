@@ -81,7 +81,7 @@ async function something() {
 Create deferred object.
 
 ```ts
-import { deferred } from '@maruware/promise-tools'
+import { defer } from '@maruware/promise-tools'
 
 async function something() {
   const d = defer<string>()
