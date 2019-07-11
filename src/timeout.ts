@@ -4,7 +4,7 @@ export class TimeoutError extends Error {
   }
 }
 
-export const timeout = (ms: number) => {
+export function timeout(ms: number) {
   return new Promise<void>((resolve, reject) => {
     setTimeout(() => reject(new TimeoutError(ms)), ms)
   })
