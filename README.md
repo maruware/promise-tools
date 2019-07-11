@@ -1,6 +1,7 @@
 # promise-tools
 
 A collection of tools for Promise.
+All functions are TypeScript native.
 
 ## Install
 
@@ -10,7 +11,7 @@ $ yarn add @maruware/promise-tools
 
 ## Usage
 
-### all
+### all\<T>(...promises: Promise\<T>[]): Promise\<T[]>
 
 Promise.all shorthand
 
@@ -24,10 +25,20 @@ async function something() {
     Promise.resolve('c')
   )
 }
-
 ```
 
-### chain
+###  each\<T, D>(targets: T[], process: (target: T) => Promise\<D>): Promise\<D[]>
+
+```ts
+const a = [1, 2, 3]
+const f = (n: number) => {
+  return Promise.resolve(n.toString())
+}
+const r = await each(a, f)
+// ['1', '2', '3']
+```
+
+### chain\<T>(initialValue: T, catchCallback?: (e: Error) => void)
 
 small queue
 
@@ -51,7 +62,7 @@ async function something() {
 }
 ```
 
-### delay
+### delay(ms: number): Promise\<void>
 
 resolve after milliseconds
 
@@ -64,7 +75,7 @@ async function something() {
 }
 ```
 
-### timeout
+### timeout(ms: number): Promise\<void>
 
 reject after milliseconds
 
@@ -76,7 +87,7 @@ async function something() {
 }
 ```
 
-### defer
+### defer\<T>(): Deferred\<T>
 
 Create deferred object.
 
