@@ -1,5 +1,6 @@
 export * from './chain'
 export * from './all'
+export * from './each'
 export * from './timeout'
 export * from './delay'
 export * from './defer'
