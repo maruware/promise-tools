@@ -1,3 +1,3 @@
-export const all = (...args: Array<Promise<any>>) => {
-  return Promise.all(args)
+export function all<T>(...promises: Promise<T>[]) {
+  return Promise.all(promises)
 }
