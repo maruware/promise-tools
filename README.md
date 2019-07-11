@@ -1,5 +1,8 @@
 # promise-tools
 
+![travis-ci](https://travis-ci.org/maruware/promise-tools.svg?branch=master)
+[![npm version](https://badge.fury.io/js/%40maruware%2Fpromise-tools.svg)](https://badge.fury.io/js/%40maruware%2Fpromise-tools)
+
 A collection of tools for Promise.
 All functions are TypeScript native.
 
